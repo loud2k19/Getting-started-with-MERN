@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://login:SghtiIGURPXYcfVe@cluster0-pcxdf.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"
+  "mongoURI": "mongodb+srv://login:SghtiIGURPXYcfVe@cluster0-pcxdf.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true",
+  "jwtSecret": "asdfasdf"
 }
