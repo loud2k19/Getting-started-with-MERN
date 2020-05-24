@@ -13,7 +13,7 @@ module.exports = function(req, res, next) {
     const decoded = jwt.verify(token, config.get("jwtSecret"));
     req.user = decoded.user;
     next();
-    //sres.json({ msg: "got stuck" });
+    //res.json({ msg: "got stuck" });
   } catch (err) {
     res.status(401).json({ msg: "toKen experied" });
   }
