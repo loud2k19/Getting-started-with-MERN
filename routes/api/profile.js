@@ -5,7 +5,8 @@ const { check, validationResult } = require("express-validator");
 const request = require("request");
 const config = require("config");
 const Profile = require("../../models/Profile");
-const user = require("../../models/User");
+const User = require("../../models/User");
+const Post = require("../../models/Post");
 
 //@route  GeT api/profile/me
 //@desc   Get current user profilv
@@ -114,7 +115,7 @@ router.post(
 //@route  Get api/profile/me
 //@desc   get all profiles
 //@access public
-
+//used to get all prodiles without loggin in
 router.get("/", async (req, res) => {
   try {
     const profiles = await Profile.find().populate("user", ["name", "avatar"]);
@@ -153,6 +154,8 @@ router.get("/user/:user_id", async (req, res) => {
 router.delete("/", auth, async (req, res) => {
   try {
     //and also remove posts
+    await Post.deleteMany({ user: req.user.id });
+
     //remov profile
     await Profile.findOneAndRemove({ user: req.user.id });
     //rmov usr
