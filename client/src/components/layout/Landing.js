@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-const Landing = isAuthenticated => {
+const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
@@ -18,12 +18,12 @@ const Landing = isAuthenticated => {
             other developers
           </p>
           <div className="buttons">
-            <a href="register.html" className="btn btn-primary">
+            <Link to="/register" className="btn btn-primary">
               Sign Up
-            </a>
-            <a href="login.html" className="btn btn-light">
+            </Link>
+            <Link to="/login" className="btn btn-light">
               Login
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ const Landing = isAuthenticated => {
   );
 };
 
-Landing.protoTypes = {
+Landing.propTypes = {
   isAuthenticated: PropTypes.bool
 };
 
